@@ -280,6 +280,216 @@ body.mouse .menu-item-has-children {
 
 /*end header=================*/
 
+// chat widget start
+.chat-widget {
+  position: relative;
+  background: #FFFFFF;
+  box-shadow: 0px 8px 40px rgba(0, 0, 0, 0.08);
+  border-radius: 20px;
+  max-width: 380px;
+  box-sizing: border-box;
+  z-index: 2;
+
+  &__header {
+    position: relative;
+    padding: 18px 30px 16px;
+    border-bottom: 1px solid #EFEFEF;
+
+    &::before {
+      content: '';
+      width: 13px;
+      height: 20px;
+      background-image: url("data:image/svg+xml,%3Csvg width='13' height='20' viewBox='0 0 13 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11.797 0.559917V0.557851C11.459 0.200981 10.9995 0.000206612 10.5203 0H2.13403C1.13798 0.00340909 0.331371 0.850568 0.328125 1.89669V18.1012C0.328322 18.6046 0.519486 19.0871 0.859273 19.4421C1.1968 19.7985 1.65545 19.9992 2.13403 20H10.5222C11.0008 19.9992 11.4595 19.7985 11.797 19.4421C12.1363 19.0877 12.3274 18.6059 12.3281 18.1033V1.89876C12.3274 1.39613 12.1363 0.914411 11.797 0.559917ZM6.32813 18.7128C6.05867 18.7128 5.84026 18.4834 5.84026 18.2004C5.84026 17.9174 6.05867 17.688 6.32813 17.688C6.59758 17.688 6.81599 17.9174 6.81599 18.2004C6.81599 18.4834 6.59758 18.7128 6.32813 18.7128ZM10.894 15.4959C10.894 16.1805 10.3656 16.7355 9.7137 16.7355H2.94058C2.2887 16.7355 1.76026 16.1805 1.76026 15.4959V3.41942C1.76026 2.73476 2.2887 2.17975 2.94058 2.17975H9.71567C10.3676 2.17975 10.896 2.73476 10.896 3.41942L10.894 15.4959Z' fill='%23909090'/%3E%3C/svg%3E%0A");
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      right: 30px;
+    }
+  }
+
+  &__messages {
+    padding: 16px 30px 23px;
+  }
+
+  &__message {
+    display: grid;
+    grid-template-columns: 50px auto;
+    gap: 30px;
+    align-items: flex-end;
+
+    &--reverse {
+      grid-template-columns: auto 50px;
+
+      .chat-widget__write,
+      .chat-widget__content {
+        grid-column-start: 1;
+        grid-column-end: 2;
+      }
+
+      .chat-widget__content {
+        &::before {
+          left: initial;
+          right: -31px;
+          transform: scaleX(-1);
+        }
+
+        &::after {
+          left: initial;
+          right: 0;
+        }
+      }
+
+      .chat-widget__write {
+        margin-left: auto;
+        margin-right: 40px;
+      }
+
+      .chat-widget__avatar {
+        grid-column-start: 2;
+        grid-column-end: 3;
+      }
+    }
+  }
+
+  &__avatar {
+    position: relative;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+
+    img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+  }
+
+  &__name {
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 19px;
+    color: #333333;
+    margin-bottom: 2px;
+  }
+
+  &__status {
+    font-size: 12px;
+    line-height: 16px;
+    color: #909090;
+
+    &::after {
+      content: '';
+      animation: dots 2s linear infinite;
+
+      @keyframes dots {
+        0%, 20% {
+          content: '.'
+        }
+        40% {
+          content: '..'
+        }
+        60% {
+          content: '...'
+        }
+        90%, 100% {
+          content: ''
+        }
+      }
+    }
+  }
+
+  &__write {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(3, 10px);
+    gap: 10px;
+    height: 50px;
+    align-items: center;
+    width: fit-content;
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 2;
+  }
+
+  &__content {
+    position: relative;
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    background: #F8F8F8;
+    border: 1px solid #EFEFEF;
+    box-sizing: border-box;
+    border-radius: 10px;
+    padding: 20px;
+    width: fit-content;
+    min-height: 50px;
+
+    &::before {
+      content: '';
+      background-image: url("data:image/svg+xml,%3Csvg width='67' height='34' viewBox='0 0 67 34' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 33C23.5 29 29.5 8.5 30 3L38.5 1L43 5.5L65 33H1Z' fill='%23F8F8F8' stroke='%23EFEFEF'/%3E%3C/svg%3E%0A");
+      width: 67px;
+      height: 34px;
+      position: absolute;
+      bottom: -2px;
+      left: -31px;
+      z-index: 1;
+    }
+
+    &::after {
+      content: '';
+      width: 34px;
+      height: 34px;
+      background: #F8F8F8;
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      z-index: 2;
+    }
+
+    .emoji {
+      width: 50px;
+      height: 50px;
+      display: block;
+    }
+  }
+
+  &__dot {
+    width: 10px;
+    height: 10px;
+    background: #C4C4C4;
+    opacity: 0.3;
+    border-radius: 50%;
+  }
+
+  &__hand {
+    position: absolute;
+    top: calc(50% - 10px);
+    left: calc(100% + 20px);
+    width: 20px;
+    height: 20px;
+    
+    img {
+      display: block;
+    }
+  }
+
+  &__text {
+    position: relative;
+    font-weight: 300;
+    font-size: 12px;
+    line-height: 18px;
+    color: #333333;
+    z-index: 3;
+  }
+}
+// chat widget end
+
 /*start intro==============*/
 .intro {
   overflow-x: hidden;
@@ -640,7 +850,7 @@ body.mouse .menu-item-has-children {
 
 /*start presrnt==========*/
 .present {
-  overflow-x: hidden;
+  //overflow-x: hidden;
   padding: 100px 0;
 
   &__container {
@@ -656,6 +866,8 @@ body.mouse .menu-item-has-children {
   }
 
   &__left {
+    display: block;
+    position: relative;
     margin-left: -50px;
     width: calc(100% - 445px);
   }
@@ -669,11 +881,20 @@ body.mouse .menu-item-has-children {
     margin-left: -50px;
     width: 100%;
     height: 680px;
+    position: sticky;
 
     img {
+      display: block;
       width: 100%;
       height: 100%;
       object-fit: contain;
+    }
+
+    .chat-widget {
+      position: absolute;
+      right: -48px;
+      bottom: 136px;
+      width: 380px;
     }
   }
 
@@ -784,7 +1005,7 @@ body.mouse .menu-item-has-children {
     margin-right: -60px;
     width: 651px;
     height: 700px;
-    visibility: hidden;
+    //visibility: hidden;
 
     img {
       width: 100%;
@@ -793,10 +1014,25 @@ body.mouse .menu-item-has-children {
     }
   }
 
+  &__exp {
+    position: relative;
 
+    .chat-widget {
+      position: absolute;
+      bottom: 38px;
+      left: -168px;
+    }
+  }
 
+  &__cashback {
+    position: relative;
 
-
+    .chat-widget {
+      position: absolute;
+      bottom: 38px;
+      left: -168px;
+    }
+  }
 }
 
 

@@ -1,4 +1,5 @@
 $(function(){
+  gsap.registerPlugin(ScrollTrigger);
 
   $(window).scroll(function() {
     if ($(this).scrollTop() > 100){
@@ -8,6 +9,68 @@ $(function(){
     $('header').removeClass("sticky");
     }
   });
+
+  // анимации на главной
+  if (!!document.querySelector('.present')) {
+    const img = document.querySelector('.present__img');
+    const menu = document.querySelector('.header');
+
+    // фиксируем изображение
+    gsap.set('.present__img', {top: window.innerHeight / 2 - img.getBoundingClientRect().height / 2 + menu.getBoundingClientRect().height / 2});
+
+    // анимация сообщений в первом блоке
+    gsap.timeline({ repeat: -1 })
+        // .from('#present_msg', .5, {autoAlpha: 0})
+        .to('#present_msg_1 .chat-widget__write', .5, {autoAlpha: 0}, 12.5)
+        .from('#present_msg_1 .chat-widget__content', .5, {height: 50}, 12.5)
+        .from('#present_msg_1 .chat-widget__content', .5, {autoAlpha: 0})
+        .to('#present_msg_1', .5, {marginBottom: 30})
+        .from('#present_msg_2', .5, {height: 0}, '-=.5')
+        .from('#present_msg_2', .5, {autoAlpha: 0})
+        .to('#present_msg_2', 12, {autoAlpha: 1})
+        // .to('#present_msg', .5, {autoAlpha: 0})
+        // .to('#present_msg', .5, {height: 89})
+  }
+
+  if (!!document.querySelector('#exp_msg')) {
+    gsap.timeline({
+      scrollTrigger: {
+        trigger: '#exp_msg',
+        start: 'bottom bottom'
+      }
+    })
+        .from('#exp_msg_1 .chat-widget__content', .5, {height: 50}, 12)
+        .from('#exp_msg_1 .chat-widget__content', .5, {autoAlpha: 0})
+        .to('#exp_msg_1 .chat-widget__write', .5, {autoAlpha: 0}, '-=.5')
+        .to('#exp_status', .5, {autoAlpha: 0})
+        .to('#exp_name', .5, {yPercent: 50}, '-=.5')
+  }
+
+  if (!!document.querySelector('#cashback_msg')) {
+    gsap.timeline({
+      scrollTrigger: {
+        trigger: '#cashback_msg',
+        start: 'bottom bottom'
+      }
+    })
+        .from('#cashback_msg_1 .chat-widget__content', .5, {height: 50}, 12)
+        .from('#cashback_msg_1 .chat-widget__content', .5, {autoAlpha: 0})
+        .to('#cashback_msg_1 .chat-widget__write', .5, {autoAlpha: 0}, '-=.5')
+        .to('#cashback_status', .5, {autoAlpha: 0})
+        .to('#cashback_name', .5, {yPercent: 50}, '-=.5')
+  }
+
+  // индикатор написания сообщения
+  if (!!document.querySelectorAll('.chat-widget__write')) {
+    const preloaders = document.querySelectorAll('.chat-widget__write');
+    preloaders.forEach(p => {
+      const hand = p.querySelector('.chat-widget__hand'),
+            dots = p.querySelectorAll('.chat-widget__dot');
+      gsap.timeline({ repeat: -1})
+          .from(hand, 4, {left: 0}, 0)
+          .from(dots, .75, {autoAlpha: 0, yPercent: -100, stagger: .75}, 0)
+    })
+  }
 
   //анимация на секцию present
   // const container = gsap.utils.toArray(".present__left");
@@ -93,6 +156,7 @@ $(function(){
   if(isMobile.any()){
       body.classList.add('touch');
       let arrow=document.querySelectorAll('.arrow-mob');
+    let i;
     for(i=0; i<arrow.length; i++){
         let thisLink=arrow[i].previousElementSibling;
         let subMenu=arrow[i].nextElementSibling;
@@ -162,7 +226,6 @@ $(function(){
     $('.slider-articl__bottom').slick({
       prevArrow: '<button class="bottom-left"><svg width="11" height="22" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 1L2 11l8 10" stroke="#909090" stroke-width="2"/></svg></button>',
       nextArrow: '<button class="bottom-right"><svg width="11" height="22" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 21l8-10L1 1" stroke="#909090" stroke-width="2"/></svg></button>',
-      slidesToShow: 5,    slidesToScroll: 1,
       asNavFor: '.slider-articl__top',
       dots: false,
       arrows:true,
