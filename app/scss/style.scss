@@ -5277,6 +5277,321 @@ body.mouse .menu-item-has-children {
 
 /*end modal=========*/
 
+/*satart notebook===================*/
+.notebook {
+  &__container {
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 0 0 10px;
+  }
+
+  &__inner {
+    overflow: hidden;
+  }
+
+  &__box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 60px;
+
+  }
+
+  &__left {
+    max-width: 430px;
+    width: 100%;
+    margin-right: 20px;
+
+    span {
+      display: block;
+      margin-bottom: 35px;
+      font-weight: 400;
+      font-size: 20px;
+      line-height: 32px;
+    }
+  }
+
+  &__title {
+    margin-bottom: 30px;
+  }
+
+  &__subtitle {
+    margin-bottom: 10px;
+    font-weight: 700;
+    font-size: 26px;
+    line-height: 66px;
+  }
+
+  &__text {
+    margin-bottom: 15px;
+  }
+
+  &__right {
+    position: relative;
+    min-width: 600px;
+    max-width: 600px;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    &::before {
+      position: absolute;
+      content: "";
+      left: -19px;
+      top: 35px;
+      height: 330px;
+      width: 129px;
+      background-image: url('../images/dest/content/pen.png');
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+  }
+
+  &__right-inner {
+    font-family: 'Caveat', sans-serif;
+    max-width: 230px;
+    width: 100%;
+    position: absolute;
+    top: 40%;
+    right: 35%;
+    transform: rotate(14.15deg);
+
+    span {
+      font-weight: 700;
+      font-size: 16px;
+      line-height: 24px;
+      display: block;
+    }
+
+    span+span {
+      margin-left: 5px;
+    }
+  }
+
+  &__right-list {
+    margin-bottom: 15px;
+    display: flex;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  &__right-title {
+    margin-bottom: 20px;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 24px;
+    text-transform: uppercase;
+  }
+
+  strong {
+    display: block;
+    margin-bottom: 40px;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 28px;
+  }
+
+  &__btn {
+    max-width: 350px;
+    width: 100%;
+    text-align: center;
+  }
+}
+
+/*end notebook===================*/
+
+/*start escort=-=========*/
+.escort {
+  &__container {
+    max-width: 1130px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 10px;
+  }
+
+  &__box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 50px;
+  }
+
+  &__left {
+    max-width: 450px;
+    width: 100%;
+  }
+
+  &__title {
+    margin-bottom: 40px;
+  }
+
+  &__right {
+    position: relative;
+    min-width: 340px;
+    max-width: 340px;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+
+  &__right-inner {
+    position: absolute;
+    width: 72%;
+    height: 77%;
+    top: 10%;
+    left: 16%;
+  }
+
+  &__right-icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 185px;
+    height: 150px;
+    margin: 80px auto 0;
+    background-image: url('../images/dest/content/escorrSbg-bg.png');
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+
+  &__right-iconsWrap {
+    position: relative;
+    width: 70px;
+    height: 70px;
+
+    svg:first-child {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+    }
+
+    svg:last-child {
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
+  }
+
+  &__right-text {
+    margin-top: 25px;
+    text-align: center;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 20px;
+  }
+
+  &__subtitle {
+    margin-bottom: 30px;
+    font-weight: 700;
+    font-size: 26px;
+    line-height: 34px;
+  }
+  &__list li{
+    position: relative;
+    padding-left: 115px;
+    margin-bottom: 35px;
+    &::before{
+      position: absolute;
+      content: "";
+      left: 0;
+      top: 0;
+      width: 100px;
+      height: 70px;
+      background-position: center;
+      background-size: contain;
+      background-repeat: no-repeat;
+    }
+  }
+
+  &__box:nth-child(2) .escort__list li:nth-child(1):before{
+    background-image: url('../images/dest/content/excort-1.png');
+  }
+  &__box:nth-child(2) .escort__list li:nth-child(2):before{
+    background-image: url('../images/dest/content/excort-2.png');
+  }
+  &__box:nth-child(3) .escort__list li:nth-child(1):before{
+    background-image: url('../images/dest/content/excort-3.png');
+  }
+  &__box:nth-child(3) .escort__list li:nth-child(2):before{
+    background-image: url('../images/dest/content/excort-4.png');
+  }
+  &__box:nth-child(3) .escort__list li:nth-child(3):before{
+    background-image: url('../images/dest/content/excort-5.png');
+  }
+  &__box:nth-child(4) .escort__list li:nth-child(1):before{
+    background-image: url('../images/dest/content/excort-6.png');
+  }
+  &__box:nth-child(4) .escort__list li:nth-child(2):before{
+    background-image: url('../images/dest/content/excort-7.png');
+  }
+  &__box:nth-child(4) .escort__list li:nth-child(3):before{
+    background-image: url('../images/dest/content/excort-8.png');
+  }
+
+  &__right-list{
+    max-width: 210px;
+    margin: 20px auto 0;
+  }
+
+  &__right-list li{
+    position: relative;
+    padding-left: 20px;
+    margin-bottom: 10px;
+    font-size: 12px;
+    line-height: 18px;
+    &::before{
+      position: absolute;
+      left: 0;
+      top: 3px;
+      content: "";
+      width: 10px;
+      height: 10px;
+      background-image: url('../images/dest/content/eskoet-check.png');
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+  }
+
+  &__left-listWrap{
+    display: flex;
+    justify-content: space-between;
+    max-width: 475px;
+  }
+  &__left-list li{
+    position: relative;
+    padding-left: 40px;
+    margin-bottom: 30px;
+    &::before{
+      position: absolute;
+      content: "";
+      left: 0;
+      top: 4px;
+      width: 27px;
+      height: 23px;
+      background-image: url('../images/dest/content/eskoet-check2.png');
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+  }
+
+
+
+}
+
+/*end escort=-=========*/
+
 
 
 
