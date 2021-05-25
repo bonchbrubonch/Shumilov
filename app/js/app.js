@@ -72,6 +72,70 @@ $(function(){
     })
   }
 
+  // анимация блокнота
+  if (!!document.querySelector('.notebook')) {
+    const notebook_img = document.querySelector('.notebook__right')
+    gsap.set(notebook_img, {top: window.innerHeight / 2 - notebook_img.getBoundingClientRect().height / 2 + 50});
+
+    gsap.from('#notebook_item_1', .5, {
+      autoAlpha: 0,
+      scrollTrigger: {
+        trigger: '#notebook_content_1',
+        start: 'top center',
+      }
+    })
+
+    gsap.from('#notebook_item_2', .5, {
+      autoAlpha: 0,
+      scrollTrigger: {
+        trigger: '#notebook_content_2',
+        start: 'top center',
+      }
+    })
+
+    gsap.from('#notebook_item_3', .5, {
+      autoAlpha: 0,
+      scrollTrigger: {
+        trigger: '#notebook_content_3',
+        start: 'top center',
+      }
+    })
+  }
+
+  // анимация приложения
+  if (!!document.querySelector('.escort')) {
+    const app_preview = document.querySelector('.escort__right');
+    gsap.set(app_preview, {top: window.innerHeight / 2 - app_preview.getBoundingClientRect().height / 2 + 50});
+
+    gsap.timeline({repeat: -1})
+        .to('.gear_1', 4, {rotate: 360, ease: 'linear'},0)
+        .to('.gear_2', 4, {rotate: -360, ease: 'linear'}, 0)
+
+    gsap.timeline({
+      ease: 'steps(5)',
+      scrollTrigger: {
+        trigger: '.escort__box',
+        start: '5% center',
+        end: '75% center',
+        scrub: .5
+      },
+    })
+        .to('#app_1', .5, {autoAlpha: 0})
+        .from('#app_2', .5, {autoAlpha: 0})
+        .from('#app_2 .escort__right-list li', .5, {autoAlpha: 0, stagger: .1})
+        .to('#app_2', .5, {autoAlpha: 0})
+        .from('#app_3', .5, {autoAlpha: 0})
+        .from('#app_3 .escort__right-list li', .5, {autoAlpha: 0, stagger: .1})
+        .to('#app_3', .5, {autoAlpha: 0})
+        .from('#app_4', .5, {autoAlpha: 0})
+        .from('#app_4 .escort__right-list li', .5, {autoAlpha: 0, stagger: .1})
+        .to('#app_4', .5, {autoAlpha: 0})
+        .from('#app_5', .5, {autoAlpha: 0})
+        .to('#app_5', .5, {autoAlpha: 0})
+        .from('#app_6', .5, {autoAlpha: 0})
+        .from('#app_6 .escort__right-list li', .5, {autoAlpha: 0, stagger: .1})
+  }
+
   //анимация на секцию present
   // const container = gsap.utils.toArray(".present__left");
   // container.forEach((container) => {

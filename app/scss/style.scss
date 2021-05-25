@@ -290,6 +290,17 @@ body.mouse .menu-item-has-children {
   box-sizing: border-box;
   z-index: 2;
 
+  &--transparent {
+    max-width: 100%;
+    box-shadow: initial;
+    border-radius: initial;
+    background: transparent;
+
+    .chat-widget__messages {
+      padding: initial;
+    }
+  }
+
   &__header {
     position: relative;
     padding: 18px 30px 16px;
@@ -327,6 +338,8 @@ body.mouse .menu-item-has-children {
       }
 
       .chat-widget__content {
+        margin-left: auto;
+
         &::before {
           left: initial;
           right: -31px;
@@ -476,6 +489,7 @@ body.mouse .menu-item-has-children {
     
     img {
       display: block;
+      width: 100%;
     }
   }
 
@@ -5126,6 +5140,10 @@ body.mouse .menu-item-has-children {
     padding-left: 30px;
   }
 
+  &__right {
+    max-width: 470px;
+  }
+
   &__title {
     margin-bottom: 30px;
   }
@@ -5287,13 +5305,13 @@ body.mouse .menu-item-has-children {
   }
 
   &__inner {
-    overflow: hidden;
+    //overflow: hidden;
   }
 
   &__box {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
     margin-bottom: 60px;
 
   }
@@ -5328,7 +5346,7 @@ body.mouse .menu-item-has-children {
   }
 
   &__right {
-    position: relative;
+    position: sticky;
     min-width: 600px;
     max-width: 600px;
 
@@ -5359,7 +5377,7 @@ body.mouse .menu-item-has-children {
     position: absolute;
     top: 40%;
     right: 35%;
-    transform: rotate(14.15deg);
+    transform: rotate(16.05deg) translate(-20px, 10px);
 
     span {
       font-weight: 700;
@@ -5387,6 +5405,22 @@ body.mouse .menu-item-has-children {
     font-size: 20px;
     line-height: 24px;
     text-transform: uppercase;
+  }
+
+  &__content {
+    &:nth-child(1) {
+      margin-top: 330px;
+      margin-bottom: 473px;
+    }
+    &:nth-child(2) {
+      margin-bottom: 256px;
+    }
+    &:nth-child(3) {
+      margin-bottom: 493px;
+    }
+    &:nth-child(4) {
+      margin-bottom: 340px;
+    }
   }
 
   strong {
@@ -5418,7 +5452,7 @@ body.mouse .menu-item-has-children {
   &__box {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
     margin-bottom: 50px;
   }
 
@@ -5432,7 +5466,7 @@ body.mouse .menu-item-has-children {
   }
 
   &__right {
-    position: relative;
+    position: sticky;
     min-width: 340px;
     max-width: 340px;
 
@@ -5500,6 +5534,7 @@ body.mouse .menu-item-has-children {
     position: relative;
     padding-left: 115px;
     margin-bottom: 35px;
+
     &::before{
       position: absolute;
       content: "";
@@ -5513,28 +5548,50 @@ body.mouse .menu-item-has-children {
     }
   }
 
-  &__box:nth-child(2) .escort__list li:nth-child(1):before{
+  &__content {
+    &:nth-child(1) {
+      margin-top: 200px;
+      margin-bottom: 326px;
+    }
+    &:nth-child(2) {
+      margin-bottom: 407px;
+    }
+    &:nth-child(3) {
+      margin-bottom: 490px;
+    }
+    &:nth-child(4) {
+      margin-bottom: 397px;
+    }
+    &:nth-child(5) {
+      margin-bottom: 410px;
+    }
+    &:nth-child(6) {
+      margin-bottom: 338px;
+    }
+  }
+
+  &__content:nth-child(2) .escort__list li:nth-child(1):before{
     background-image: url('../images/dest/content/excort-1.png');
   }
-  &__box:nth-child(2) .escort__list li:nth-child(2):before{
+  &__content:nth-child(2) .escort__list li:nth-child(2):before{
     background-image: url('../images/dest/content/excort-2.png');
   }
-  &__box:nth-child(3) .escort__list li:nth-child(1):before{
+  &__content:nth-child(3) .escort__list li:nth-child(1):before{
     background-image: url('../images/dest/content/excort-3.png');
   }
-  &__box:nth-child(3) .escort__list li:nth-child(2):before{
+  &__content:nth-child(3) .escort__list li:nth-child(2):before{
     background-image: url('../images/dest/content/excort-4.png');
   }
-  &__box:nth-child(3) .escort__list li:nth-child(3):before{
+  &__content:nth-child(3) .escort__list li:nth-child(3):before{
     background-image: url('../images/dest/content/excort-5.png');
   }
-  &__box:nth-child(4) .escort__list li:nth-child(1):before{
+  &__content:nth-child(4) .escort__list li:nth-child(1):before{
     background-image: url('../images/dest/content/excort-6.png');
   }
-  &__box:nth-child(4) .escort__list li:nth-child(2):before{
+  &__content:nth-child(4) .escort__list li:nth-child(2):before{
     background-image: url('../images/dest/content/excort-7.png');
   }
-  &__box:nth-child(4) .escort__list li:nth-child(3):before{
+  &__content:nth-child(4) .escort__list li:nth-child(3):before{
     background-image: url('../images/dest/content/excort-8.png');
   }
 

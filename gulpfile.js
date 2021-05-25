@@ -20,12 +20,13 @@ function browsersync() {
 
 function scripts() {
   return src([
+    'node_modules/gsap/dist/gsap.js',
+    'node_modules/gsap/dist/ScrollTrigger.js',
     'node_modules/jquery/dist/jquery.min.js',
     "node_modules/inputmask/dist/jquery.inputmask.min.js",
     'node_modules/mixitup/dist/mixitup.js',
     'node_modules/parallax-js/dist/parallax.js',
     'node_modules/slick-carousel/slick/slick.js',
-    'node_modules/gsap/index.js',
     'app/js/app.js',
   ])
   .pipe(concat('app.min.js'))
