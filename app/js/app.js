@@ -1,6 +1,8 @@
 $(function(){
   gsap.registerPlugin(ScrollTrigger);
 
+  const mobile = window.innerWidth < 1200;
+
   $(window).scroll(function() {
     if ($(this).scrollTop() > 100){
     $('header').addClass("sticky");
@@ -77,109 +79,119 @@ $(function(){
     const notebook_img = document.querySelector('.notebook__right')
     gsap.set(notebook_img, {top: window.innerHeight / 2 - notebook_img.getBoundingClientRect().height / 2 + 50});
 
-    gsap.from('.notebook__right-list', {
-      scrollTrigger: {
-        trigger: '#notebook_content_1',
-        start: 'top center',
-        endTrigger: '#notebook_content_3',
-        end: 'bottom center',
-        scrub: true
-      },
-      autoAlpha: 0,
-      stagger: .5
-    })
-    // gsap.from('#notebook_item_1', .5, {
-    //   autoAlpha: 0,
-    //   scrollTrigger: {
-    //     trigger: '#notebook_content_1',
-    //     start: 'top center',
-    //   }
-    // })
-    //
-    // gsap.from('#notebook_item_2', .5, {
-    //   autoAlpha: 0,
-    //   scrollTrigger: {
-    //     trigger: '#notebook_content_2',
-    //     start: 'top center',
-    //   }
-    // })
-    //
-    // gsap.from('#notebook_item_3', .5, {
-    //   autoAlpha: 0,
-    //   scrollTrigger: {
-    //     trigger: '#notebook_content_3',
-    //     start: 'top center',
-    //   }
-    // })
+    if (!mobile) {
+      gsap.from('.notebook__right-list', {
+        scrollTrigger: {
+          trigger: '#notebook_content_1',
+          start: 'top center',
+          endTrigger: '#notebook_content_3',
+          end: 'bottom center',
+          scrub: true
+        },
+        autoAlpha: 0,
+        stagger: .5
+      })
+    } else {
+      gsap.from('.notebook__right-list', {
+        scrollTrigger: {
+          trigger: '#notebook_content',
+          start: 'top top',
+          endTrigger: '#notebook_content_3',
+          end: 'bottom-=500px top',
+          scrub: true,
+          pin: '.notebook__right',
+        },
+        autoAlpha: 0,
+        stagger: .5,
+        onStart: () => {
+          gsap.set('.notebook__right', {top: window.innerHeight / 2})
+        }
+      })
+    }
   }
 
   // анимация приложения
   if (!!document.querySelector('.escort')) {
-    const app_preview = document.querySelector('.escort__right');
-    gsap.set(app_preview, {top: window.innerHeight / 2 - app_preview.getBoundingClientRect().height / 2 + 50});
 
     gsap.timeline({repeat: -1})
         .to('.gear_1', 4, {rotate: 360, ease: 'linear'},0)
         .to('.gear_2', 4, {rotate: -360, ease: 'linear'}, 0)
 
-    gsap.timeline({
-      scrollTrigger: {
-        trigger: '#app_content_2',
-        start: `top-=${window.innerHeight / 2}px center`,
-        end: 'top+=100px center',
-        scrub: true
-      },
-    })
-        .to('#app_1', {autoAlpha: 0})
-        .from('#app_2', {autoAlpha: 0}, '+=2')
-        .from('#app_2 .escort__right-list li', .5, {autoAlpha: 0, stagger: .1})
+    if (!mobile) {
+      const app_preview = document.querySelector('.escort__right');
+      gsap.set(app_preview, {top: window.innerHeight / 2 - app_preview.getBoundingClientRect().height / 2 + 50});
 
-    gsap.timeline({
-      scrollTrigger: {
-        trigger: '#app_content_3',
-        start: `top-=${window.innerHeight / 2}px center`,
-        end: 'top+=100px center',
-        scrub: true
-      },
-    })
-        .to('#app_2', {autoAlpha: 0})
-        .from('#app_3', {autoAlpha: 0}, '+=2')
-        .from('#app_3 .escort__right-list li', .5, {autoAlpha: 0, stagger: .1})
+      gsap.timeline({
+        scrollTrigger: {
+          trigger: '#app_content_2',
+          start: `top-=${window.innerHeight / 2}px center`,
+          end: 'top+=100px center',
+          scrub: true
+        },
+      })
+          .to('#app_1', {autoAlpha: 0})
+          .from('#app_2', {autoAlpha: 0}, '+=2')
+          .from('#app_2 .escort__right-list li', .5, {autoAlpha: 0, stagger: .1})
 
-    gsap.timeline({
-      scrollTrigger: {
-        trigger: '#app_content_4',
-        start: `top-=${window.innerHeight / 2}px center`,
-        end: 'top+=100px center',
-        scrub: true
-      },
-    })
-        .to('#app_3', {autoAlpha: 0})
-        .from('#app_4', {autoAlpha: 0}, '+=2')
-        .from('#app_4 .escort__right-list li', .5, {autoAlpha: 0, stagger: .1})
+      gsap.timeline({
+        scrollTrigger: {
+          trigger: '#app_content_3',
+          start: `top-=${window.innerHeight / 2}px center`,
+          end: 'top+=100px center',
+          scrub: true
+        },
+      })
+          .to('#app_2', {autoAlpha: 0})
+          .from('#app_3', {autoAlpha: 0}, '+=2')
+          .from('#app_3 .escort__right-list li', .5, {autoAlpha: 0, stagger: .1})
 
-    gsap.timeline({
-      scrollTrigger: {
-        trigger: '#app_content_5',
-        start: `top-=${window.innerHeight / 2}px center`,
-        end: 'top+=100px center',
-        scrub: true
-      },
-    })
-        .to('#app_4', {autoAlpha: 0})
-        .from('#app_5', {autoAlpha: 0}, '+=2')
+      gsap.timeline({
+        scrollTrigger: {
+          trigger: '#app_content_4',
+          start: `top-=${window.innerHeight / 2}px center`,
+          end: 'top+=100px center',
+          scrub: true
+        },
+      })
+          .to('#app_3', {autoAlpha: 0})
+          .from('#app_4', {autoAlpha: 0}, '+=2')
+          .from('#app_4 .escort__right-list li', .5, {autoAlpha: 0, stagger: .1})
 
-    gsap.timeline({
-      scrollTrigger: {
-        trigger: '#app_content_6',
-        start: `top-=${window.innerHeight / 2}px center`,
-        end: 'top+=100px center',
-        scrub: true
-      },
-    })
-        .to('#app_5', {autoAlpha: 0})
-        .from('#app_6', {autoAlpha: 0}, '+=2')
-        .from('#app_6 .escort__right-list li', .5, {autoAlpha: 0, stagger: .1})
+      gsap.timeline({
+        scrollTrigger: {
+          trigger: '#app_content_5',
+          start: `top-=${window.innerHeight / 2}px center`,
+          end: 'top+=100px center',
+          scrub: true
+        },
+      })
+          .to('#app_4', {autoAlpha: 0})
+          .from('#app_5', {autoAlpha: 0}, '+=2')
+
+      gsap.timeline({
+        scrollTrigger: {
+          trigger: '#app_content_6',
+          start: `top-=${window.innerHeight / 2}px center`,
+          end: 'top+=100px center',
+          scrub: true
+        },
+      })
+          .to('#app_5', {autoAlpha: 0})
+          .from('#app_6', {autoAlpha: 0}, '+=2')
+          .from('#app_6 .escort__right-list li', .5, {autoAlpha: 0, stagger: .1})
+    } else {
+      gsap.set('#app_2, #app_3, #app_4, #app_5, #app_6', {autoAlpha: 0})
+
+      gsap.to('.escort__right-done', {
+        clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0% 100%)',
+        scrollTrigger: {
+          trigger: '.escort__right',
+          start: 'top center',
+          end: 'bottom center',
+          scrub: true
+        }
+      })
+    }
 
 
     // gsap.timeline({

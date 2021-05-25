@@ -357,6 +357,12 @@ body.mouse .menu-item-has-children {
     }
   }
 
+  &--mobile {
+    display: none;
+
+
+  }
+
   &__header {
     position: relative;
     padding: 18px 30px 16px;
