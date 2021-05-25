@@ -77,29 +77,40 @@ $(function(){
     const notebook_img = document.querySelector('.notebook__right')
     gsap.set(notebook_img, {top: window.innerHeight / 2 - notebook_img.getBoundingClientRect().height / 2 + 50});
 
-    gsap.from('#notebook_item_1', .5, {
-      autoAlpha: 0,
+    gsap.from('.notebook__right-list', {
       scrollTrigger: {
         trigger: '#notebook_content_1',
         start: 'top center',
-      }
-    })
-
-    gsap.from('#notebook_item_2', .5, {
+        endTrigger: '#notebook_content_3',
+        end: 'bottom center',
+        scrub: true
+      },
       autoAlpha: 0,
-      scrollTrigger: {
-        trigger: '#notebook_content_2',
-        start: 'top center',
-      }
+      stagger: .5
     })
-
-    gsap.from('#notebook_item_3', .5, {
-      autoAlpha: 0,
-      scrollTrigger: {
-        trigger: '#notebook_content_3',
-        start: 'top center',
-      }
-    })
+    // gsap.from('#notebook_item_1', .5, {
+    //   autoAlpha: 0,
+    //   scrollTrigger: {
+    //     trigger: '#notebook_content_1',
+    //     start: 'top center',
+    //   }
+    // })
+    //
+    // gsap.from('#notebook_item_2', .5, {
+    //   autoAlpha: 0,
+    //   scrollTrigger: {
+    //     trigger: '#notebook_content_2',
+    //     start: 'top center',
+    //   }
+    // })
+    //
+    // gsap.from('#notebook_item_3', .5, {
+    //   autoAlpha: 0,
+    //   scrollTrigger: {
+    //     trigger: '#notebook_content_3',
+    //     start: 'top center',
+    //   }
+    // })
   }
 
   // анимация приложения
@@ -112,28 +123,109 @@ $(function(){
         .to('.gear_2', 4, {rotate: -360, ease: 'linear'}, 0)
 
     gsap.timeline({
-      ease: 'steps(5)',
       scrollTrigger: {
-        trigger: '.escort__box',
-        start: '5% center',
-        end: '75% center',
-        scrub: .5
+        trigger: '#app_content_2',
+        start: `top-=${window.innerHeight / 2}px center`,
+        end: 'top+=100px center',
+        scrub: true
       },
     })
-        .to('#app_1', .5, {autoAlpha: 0})
-        .from('#app_2', .5, {autoAlpha: 0})
+        .to('#app_1', {autoAlpha: 0})
+        .from('#app_2', {autoAlpha: 0}, '+=2')
         .from('#app_2 .escort__right-list li', .5, {autoAlpha: 0, stagger: .1})
-        .to('#app_2', .5, {autoAlpha: 0})
-        .from('#app_3', .5, {autoAlpha: 0})
+
+    gsap.timeline({
+      scrollTrigger: {
+        trigger: '#app_content_3',
+        start: `top-=${window.innerHeight / 2}px center`,
+        end: 'top+=100px center',
+        scrub: true
+      },
+    })
+        .to('#app_2', {autoAlpha: 0})
+        .from('#app_3', {autoAlpha: 0}, '+=2')
         .from('#app_3 .escort__right-list li', .5, {autoAlpha: 0, stagger: .1})
-        .to('#app_3', .5, {autoAlpha: 0})
-        .from('#app_4', .5, {autoAlpha: 0})
+
+    gsap.timeline({
+      scrollTrigger: {
+        trigger: '#app_content_4',
+        start: `top-=${window.innerHeight / 2}px center`,
+        end: 'top+=100px center',
+        scrub: true
+      },
+    })
+        .to('#app_3', {autoAlpha: 0})
+        .from('#app_4', {autoAlpha: 0}, '+=2')
         .from('#app_4 .escort__right-list li', .5, {autoAlpha: 0, stagger: .1})
-        .to('#app_4', .5, {autoAlpha: 0})
-        .from('#app_5', .5, {autoAlpha: 0})
-        .to('#app_5', .5, {autoAlpha: 0})
-        .from('#app_6', .5, {autoAlpha: 0})
+
+    gsap.timeline({
+      scrollTrigger: {
+        trigger: '#app_content_5',
+        start: `top-=${window.innerHeight / 2}px center`,
+        end: 'top+=100px center',
+        scrub: true
+      },
+    })
+        .to('#app_4', {autoAlpha: 0})
+        .from('#app_5', {autoAlpha: 0}, '+=2')
+
+    gsap.timeline({
+      scrollTrigger: {
+        trigger: '#app_content_6',
+        start: `top-=${window.innerHeight / 2}px center`,
+        end: 'top+=100px center',
+        scrub: true
+      },
+    })
+        .to('#app_5', {autoAlpha: 0})
+        .from('#app_6', {autoAlpha: 0}, '+=2')
         .from('#app_6 .escort__right-list li', .5, {autoAlpha: 0, stagger: .1})
+
+
+    // gsap.timeline({
+    //   ease: 'steps(5)',
+    //   scrollTrigger: {
+    //     trigger: '.escort__box',
+    //     start: '5% center',
+    //     end: '75% center',
+    //     scrub: .5
+    //   },
+    // })
+        // .to('#app_1', .5, {autoAlpha: 0})
+        // .from('#app_2', .5, {autoAlpha: 0})
+        // .from('#app_2 .escort__right-list li', .5, {autoAlpha: 0, stagger: .1})
+        // .to('#app_2', .5, {autoAlpha: 0}, '+=3')
+        // .from('#app_3', .5, {autoAlpha: 0})
+        // .from('#app_3 .escort__right-list li', .5, {autoAlpha: 0, stagger: .1})
+        // .to('#app_3', .5, {autoAlpha: 0}, '+=2.5')
+        // .from('#app_4', .5, {autoAlpha: 0})
+        // .from('#app_4 .escort__right-list li', .5, {autoAlpha: 0, stagger: .1})
+        // .to('#app_4', .5, {autoAlpha: 0}, '+=2')
+        // .from('#app_5', .5, {autoAlpha: 0})
+        // .to('#app_5', .5, {autoAlpha: 0}, '+=2')
+        // .from('#app_6', .5, {autoAlpha: 0})
+        // .from('#app_6 .escort__right-list li', .5, {autoAlpha: 0, stagger: .1})
+  }
+
+  if (!!document.querySelector('#contact_msg')) {
+    gsap.timeline({
+      scrollTrigger: {
+        trigger: '#contact_msg',
+        start: 'top bottom'
+      }
+    })
+        .from('#contact_msg_1 .chat-widget__content', .5, {height: 50}, 12)
+        .from('#contact_msg_1 .chat-widget__content', .5, {autoAlpha: 0})
+        .from('#contact_msg_2', .5, {autoAlpha: 0})
+        .from('#contact_msg_2 .chat-widget__content', .5, {height: 50}, '+=12')
+        .from('#contact_msg_2 .chat-widget__content', .5, {autoAlpha: 0})
+        .from('#contact_msg_3', .5, {autoAlpha: 0})
+        .from('#contact_msg_3 .chat-widget__content', .5, {height: 50}, '+=12')
+        .from('#contact_msg_3 .chat-widget__content', .5, {autoAlpha: 0})
+        .from('#contact_msg_4', .5, {autoAlpha: 0})
+        .from('#contact_msg_4 .chat-widget__content', .5, {height: 50}, '+=12')
+        .from('#contact_msg_4 .chat-widget__content', .5, {autoAlpha: 0})
+
   }
 
   //анимация на секцию present
