@@ -41,6 +41,7 @@ $(function(){
         start: 'bottom bottom'
       }
     })
+
         .from('#exp_msg_1 .chat-widget__content', .5, {height: 50}, 12)
         .from('#exp_msg_1 .chat-widget__content', .5, {autoAlpha: 0})
         .to('#exp_msg_1 .chat-widget__write', .5, {autoAlpha: 0}, '-=.5')
@@ -51,7 +52,7 @@ $(function(){
   if (!!document.querySelector('#cashback_msg')) {
     gsap.timeline({
       scrollTrigger: {
-        trigger: '#cashback_msg',
+        trigger: '#cashback_trigger',
         start: 'bottom bottom'
       }
     })
@@ -59,7 +60,7 @@ $(function(){
         .from('#cashback_msg_1 .chat-widget__content', .5, {autoAlpha: 0})
         .to('#cashback_msg_1 .chat-widget__write', .5, {autoAlpha: 0}, '-=.5')
         .to('#cashback_status', .5, {autoAlpha: 0})
-        .to('#cashback_name', .5, {yPercent: 50}, '-=.5')
+        .to('#cashback_name', .5, {yPercent: 50})
   }
 
   // индикатор написания сообщения
@@ -240,6 +241,37 @@ $(function(){
 
   }
 
+  if (!!document.querySelector('.consider')) {
+    gsap.to('#men_1', {
+      scrollTrigger: {
+        trigger: '#men_1',
+        start: 'center center',
+        end: 'center+=100% center',
+        pin: '#men_1',
+        scrub: true,
+        pinType: 'fixed'
+      },
+      autoAlpha: 0
+    })
+
+    gsap.timeline({
+      scrollTrigger: {
+        trigger: '.consider__exp',
+        start: 'center center',
+        endTrigger: '#consider_end',
+        end: 'bottom bottom',
+        pin: '.consider__exp',
+        scrub: true,
+        pinType: 'fixed'
+      }
+    })
+        .from('.consider__exp', .1, {autoAlpha: 0})
+        .from('#exp_chat', .5, {autoAlpha: 0})
+        .to('#exp_chat', .5, {autoAlpha: 0})
+        .from('#cashback_chat', .5, {autoAlpha: 0})
+        .to('#cashback_chat', .5, {autoAlpha: 0})
+  }
+
   //анимация на секцию present
   // const container = gsap.utils.toArray(".present__left");
   // container.forEach((container) => {
@@ -250,7 +282,7 @@ $(function(){
   //       scrub: true
   //     }
   //   });
-  
+
   //   t2.to(container, {
   //     autoAlpha: 1
   //   }).to(
@@ -273,7 +305,7 @@ $(function(){
   //       scrub: true
   //     }
   //   });
-  
+
   //   tl.to(container, {
   //     autoAlpha: 1
   //   }).to(
@@ -286,7 +318,7 @@ $(function(){
   // });
 
   // function resize() {
-  //   if ( $(window).width() < 1100) {     
+  //   if ( $(window).width() < 1100) {
   //     const containers = gsap.utils.toArray(".consider__box");
   //     containers.forEach((container) => {
   //       let tl = gsap.timeline({
@@ -296,7 +328,7 @@ $(function(){
   //           scrub: true
   //         }
   //       });
-      
+
   //       tl.to(container, {
   //         autoAlpha: 1
   //       }).to(
@@ -329,7 +361,7 @@ $(function(){
         let thisLink=arrow[i].previousElementSibling;
         let subMenu=arrow[i].nextElementSibling;
         let thisArrow=arrow[i];
-  
+
         thisLink.classList.add('parent');
       arrow[i].addEventListener('click', function(){
         subMenu.classList.toggle('open');
@@ -348,7 +380,7 @@ $(function(){
       $(this).parent().addClass('questions__item--active');
     });
   }
-  
+
 
   //слайдер
   if ($('.review-slider').length > 0) {
@@ -362,7 +394,7 @@ $(function(){
       variableWidth: true,
     });
   }
- 
+
 
   //стрпелки к слайдеру
   $(".arrow-phone").click(function () {
@@ -378,7 +410,7 @@ $(function(){
 
 
   //слайдер
-  if ($('.slider-articl__top').length > 0) { 
+  if ($('.slider-articl__top').length > 0) {
     $('.slider-articl__top').slick({
       prevArrow: '<button class="top-left"><svg width="8" height="12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7 11L2 6l5-5" stroke="#fff" stroke-width="2"/></svg></button>',
       nextArrow: '<button class="top-right"><svg width="8" height="12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1l5 5-5 5" stroke="#fff" stroke-width="2"/></svg></button>',
@@ -389,7 +421,7 @@ $(function(){
       fade: true,
       centerMode: true,
       asNavFor: '.slider-articl__bottom',
-    
+
     });
     $('.slider-articl__bottom').slick({
       prevArrow: '<button class="bottom-left"><svg width="11" height="22" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 1L2 11l8 10" stroke="#909090" stroke-width="2"/></svg></button>',
@@ -402,7 +434,7 @@ $(function(){
       variableWidth: true,
     });
    }
-  
+
 
   //мобильное меню
   $(".menu__btn").on("click", function () {
@@ -435,12 +467,12 @@ $(function(){
         }
       }
     };
-    
+
     Emblem.init('.emblem');
    }
 
   //эмблема
-  if ($('.emblems').length > 0) { 
+  if ($('.emblems').length > 0) {
     var Emblem = {
       init: function(el, str) {
         var element = document.querySelector(el);
@@ -460,22 +492,22 @@ $(function(){
         }
       }
     };
-    
+
     Emblem.init('.emblems');
    }
-  
+
 //устанавливаем маску телефона
 	$(".formPhone").inputmask({"mask": "+7 (999) 999-99-99"});
 
   //паралакс
-  if ($('#scene').length > 0) { 
+  if ($('#scene').length > 0) {
     var scene = document.getElementById('scene');
     var parallax = new Parallax(scene);
    }
 
 
  //фильтр на статьи
-   if ($('.articl__box').length > 0) { 
+   if ($('.articl__box').length > 0) {
     var mixer = mixitup('.articl__box', {
       load: {
         filter: "all",
@@ -483,7 +515,7 @@ $(function(){
     });
     }
 
-  
+
 
 
 });
