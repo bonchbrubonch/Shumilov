@@ -78,9 +78,9 @@ $(function(){
   // анимация блокнота
   if (!!document.querySelector('.notebook')) {
     const notebook_img = document.querySelector('.notebook__right')
-    gsap.set(notebook_img, {top: window.innerHeight / 2 - notebook_img.getBoundingClientRect().height / 2 + 50});
-
+    
     if (!mobile) {
+      gsap.set(notebook_img, {top: window.innerHeight / 2 - notebook_img.getBoundingClientRect().height / 2 + 50});
       gsap.from('.notebook__right-list', {
         scrollTrigger: {
           trigger: '#notebook_content_1',
@@ -93,20 +93,109 @@ $(function(){
         stagger: .5
       })
     } else {
+
+      // анаимация списка в блокноте
       gsap.from('.notebook__right-list', {
         scrollTrigger: {
-          trigger: '#notebook_content',
-          start: 'top top',
+          trigger: '#notebook_content_1',
+          start: 'top center',
           endTrigger: '#notebook_content_3',
-          end: 'bottom-=500px top',
+          end: 'bottom+=400px center',
           scrub: true,
-          pin: '.notebook__right',
         },
         autoAlpha: 0,
-        stagger: .5,
-        onStart: () => {
-          gsap.set('.notebook__right', {top: window.innerHeight / 2})
+        stagger: .5
+      })
+
+      // фиксация блокнота
+      ScrollTrigger.create({
+        trigger: '.notebook__right',
+        start: 'center center',
+        endTrigger: '#notebook_content_3',
+        end: 'bottom+=250px center',
+        pin: '.notebook__right'
+      })
+
+      // первая секция с заголовком
+      gsap.from('#notebook_content_inner', {
+        autoAlpha: 0,
+        repeat: 1,
+        yoyo: true,
+        scrollTrigger: {
+          trigger: '#notebook_content',
+          start: 'top center',
+          end: 'bottom center',
+          scrub: true
         }
+      })
+
+      ScrollTrigger.create({
+        trigger: '#notebook_content_inner',
+        start: 'center center',
+        endTrigger: '#notebook_content',
+        end: 'bottom center',
+        pin: '#notebook_content_inner'
+      })
+
+      // вторая секция с заголовком
+      gsap.from('#notebook_content_1_inner', {
+        autoAlpha: 0,
+        repeat: 1,
+        yoyo: true,
+        scrollTrigger: {
+          trigger: '#notebook_content_1',
+          start: 'top center',
+          end: 'bottom center',
+          scrub: true
+        }
+      })
+
+      ScrollTrigger.create({
+        trigger: '#notebook_content_1_inner',
+        start: 'center center',
+        endTrigger: '#notebook_content_1',
+        end: 'bottom center',
+        pin: '#notebook_content_1_inner'
+      })
+
+      // третья секция с заголовком
+      gsap.from('#notebook_content_2_inner', {
+        autoAlpha: 0,
+        repeat: 1,
+        yoyo: true,
+        scrollTrigger: {
+          trigger: '#notebook_content_2',
+          start: 'top center',
+          end: 'bottom center',
+          scrub: true
+        }
+      })
+
+      ScrollTrigger.create({
+        trigger: '#notebook_content_2_inner',
+        start: 'center center',
+        endTrigger: '#notebook_content_2',
+        end: 'bottom center',
+        pin: '#notebook_content_2_inner'
+      })
+
+      // четвертая секция с заголовком
+      gsap.from('#notebook_content_3_inner', {
+        autoAlpha: 0,
+        scrollTrigger: {
+          trigger: '#notebook_content_3',
+          start: 'top center',
+          end: 'bottom center',
+          scrub: true
+        }
+      })
+
+      ScrollTrigger.create({
+        trigger: '#notebook_content_3_inner',
+        start: 'center center',
+        endTrigger: '#notebook_content_3',
+        end: 'bottom center',
+        pin: '#notebook_content_3_inner'
       })
     }
   }
@@ -122,6 +211,8 @@ $(function(){
       const app_preview = document.querySelector('.escort__right');
       gsap.set(app_preview, {top: window.innerHeight / 2 - app_preview.getBoundingClientRect().height / 2 + 50});
 
+      // gsap.to('')
+
       gsap.timeline({
         scrollTrigger: {
           trigger: '#app_content_2',
@@ -130,7 +221,8 @@ $(function(){
           scrub: true
         },
       })
-          .to('#app_1', {autoAlpha: 0})
+          .to('#app_1 .escort__right-done', .5, {clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0% 100%)'})
+          .to('#app_1', .5, {autoAlpha: 0}, '-=.5')
           .from('#app_2', {autoAlpha: 0}, '+=2')
           .from('#app_2 .escort__right-list li', .5, {autoAlpha: 0, stagger: .1})
 
@@ -177,7 +269,8 @@ $(function(){
           scrub: true
         },
       })
-          .to('#app_5', {autoAlpha: 0})
+          .to('#app_5 .escort__right-done', .5, {clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0% 100%)'})
+          .to('#app_5', .5, {autoAlpha: 0}, '-=.5')
           .from('#app_6', {autoAlpha: 0}, '+=2')
           .from('#app_6 .escort__right-list li', .5, {autoAlpha: 0, stagger: .1})
     } else {
