@@ -9,17 +9,18 @@
 
   .present__box {
     .chat-widget--mobile {
-      max-width: 250px;
+      // max-width: 250px;
       margin-left: auto;
       margin-bottom: 35px;
     }
   }
 
   #exp_chat {
-    max-width: 270px;
-    left: initial;
-    right: 5px;
-    bottom: -115px;
+    // max-width: 270px;
+    // left: initial;
+    // right: 5px;
+    // bottom: -115px;
+    margin-top: -50px;
   }
 
   #cashback_chat {
@@ -48,6 +49,52 @@
 
   .notebook__content:nth-child(1) {
     margin: 120px 0;
+  }
+
+  .present {
+    &__box {
+      height: initial;
+      margin-top: initial;
+
+      &:nth-child(1) {
+        margin-bottom: 20px;
+      }
+
+      &:nth-child(2) {
+        margin-bottom: 125px;
+      }
+
+      &:nth-child(3) {
+        margin-bottom: 140px;
+      }
+    }
+
+    &__list {
+      padding-left: initial;
+    }
+
+    &__mobile-img {
+      display: block;
+    }
+  }
+
+  .consider {
+    &__right {
+      display: none;
+    }
+
+    &__mobile-img {
+      display: block;
+      margin-bottom: 35px;
+    }
+
+    .over_slide {
+      margin: 20px 0;
+    }
+
+    &__box:not(:last-child) {
+      margin-bottom: initial;
+    }
   }
 }
 

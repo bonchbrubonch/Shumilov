@@ -371,15 +371,21 @@
 
                     <div class="present__right">
                         <div class="present__box">
-                            <div class="present__title title">
-                                Добрый день!
+                            <div id="present_hello">
+                                <div class="present__title title">
+                                    Добрый день!
+                                </div>
+                                <div class="present__text">
+                                    Коротко расскажу о себе
+                                </div>
                             </div>
-                            <div class="present__text">
-                                Коротко расскажу о себе
+                            <div class="present__mobile-img">
+                                <img src="images/dest/content/history.png" alt="img">
                             </div>
                         </div>
 
-                        <div class="present__box">
+
+                        <div class="present__box" id="present_name">
                             <div class="present__title title">
                                 Меня зовут Андрей Шумилов
                             </div>
@@ -393,7 +399,7 @@
                             </div>
                         </div>
 
-                        <div class="present__box">
+                        <div class="present__box" id="present_chat">
                             <div class="chat-widget chat-widget--mobile">
                                 <div class="chat-widget__header">
                                     <div class="chat-widget__name">Андрей Шумилов</div>
@@ -441,7 +447,7 @@
                             </div>
                         </div>
 
-                        <div class="present__box">
+                        <div class="present__box" id="present_history">
                             <div class="present__title title">
                                 Хотите прочесть
                                 мою историю?
@@ -466,8 +472,11 @@
         <section class="consider">
             <div class="consider__container">
                 <div class="consider__inner">
-                    <div class="consider__box">
+                    <div class="consider__box" id="con_why">
                         <div class="consider__left">
+                            <div class="consider__mobile-img">
+                                <img src="images/dest/content/consider-1.png" alt="img">
+                            </div>
                             <div class="consider__title title">
                                 Почему стоит работать со мной?
                             </div>
@@ -479,23 +488,54 @@
                             <img src="images/dest/content/consider-1.png" alt="img">
                         </div>
                     </div>
-                    <div class="consider__box">
+                    <div class="consider__box" id='con_exp'>
                         <div class="consider__left">
-                            <div class="consider__subtitle">
-                                Опыт
+                            <div class="consider__mobile-img">
+                                <img src="images/dest/content/consider-2.png" alt="img">
+                                <div class="chat-widget" id="exp_chat">
+                                    <div class="chat-widget__header">
+                                        <div class="chat-widget__name" id="exp_name">Скайуокер Люк</div>
+                                        <div class="chat-widget__status" id="exp_status">Печатает</div>
+                                    </div>
+                                    <div class="chat-widget__messages" id="exp_msg">
+                                        <div class="chat-widget__message chat-widget__message--reverse" id="exp_msg_1">
+                                            <div class="chat-widget__write">
+                                                <div class="chat-widget__dot"></div>
+                                                <div class="chat-widget__dot"></div>
+                                                <div class="chat-widget__dot"></div>
+                                                <div class="chat-widget__hand">
+                                                    <img src="images/dest/emoji/writing-hand.png">
+                                                </div>
+                                            </div>
+                                            <div class="chat-widget__content">
+                                                <div class="chat-widget__text">Красивый анимированный комментарий от
+                                                    заказчика Красивый анимированный комментарий от заказчика
+                                                </div>
+                                            </div>
+                                            <div class="chat-widget__avatar">
+                                                <img src="images/dest/content/avatar_client.jpg">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="consider__text">
-                                Я могу подтвердить свой опыт. Я веду свой блог по интернет-маркетингу с 2015 года. За
-                                это время я
-                                выполнил около 500 проектов и совершил множество ошибок, чтобы не допускать их при
-                                работе с вашим
-                                проектом.
-                            </div>
-                            <div class="consider__text">
-                                Мой блог <a href="#">http://081180ru.livejournal.com</a> Некоторые проекты из моего
-                                портфолио тут.
-                                Обязательно позвоните в компании из этого списка и спросите каково им работается с
-                                Андреем Шумиловым
+                            <div class="over_slide">
+                                <div class="consider__subtitle">
+                                    Опыт
+                                </div>
+                                <div class="consider__text">
+                                    Я могу подтвердить свой опыт. Я веду свой блог по интернет-маркетингу с 2015 года. За
+                                    это время я
+                                    выполнил около 500 проектов и совершил множество ошибок, чтобы не допускать их при
+                                    работе с вашим
+                                    проектом.
+                                </div>
+                                <div class="consider__text">
+                                    Мой блог <a href="#">http://081180ru.livejournal.com</a> Некоторые проекты из моего
+                                    портфолио тут.
+                                    Обязательно позвоните в компании из этого списка и спросите каково им работается с
+                                    Андреем Шумиловым
+                                </div>
                             </div>
                         </div>
                         <div class="consider__right consider__exp">
@@ -526,224 +566,245 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="chat-widget" id="cashback_chat">
-                                <div class="chat-widget__header">
-                                    <div class="chat-widget__name" id="cashback_name">Андрей Шумилов</div>
-                                    <div class="chat-widget__status" id="cashback_status">Печатает</div>
+                        </div>
+                    </div>
+                    <div class="consider__box" id='con_digital'>
+                        <div class="consider__left">
+                            <div class="over_slide">
+                                <div class="consider__subtitle">
+                                    Оцифровка
                                 </div>
-                                <div class="chat-widget__messages" id="cashback_msg">
-                                    <div class="chat-widget__message" id="cashback_msg_1">
-                                        <div class="chat-widget__write">
-                                            <div class="chat-widget__dot"></div>
-                                            <div class="chat-widget__dot"></div>
-                                            <div class="chat-widget__dot"></div>
-                                            <div class="chat-widget__hand">
-                                                <img src="images/dest/emoji/writing-hand.png">
-                                            </div>
+                                <div class="consider__text">
+                                    Вы будете иметь полную картину текущей ситуации по вашим рекламным каналам. И не просто
+                                    банальное
+                                    число кликов, расход денег и т.п. Вы будете знать значения именно тех показателей,
+                                    которые дадут вам
+                                    понимание динамики работы интернет-маркетинга в вашем бизнесе.
+                                </div>
+                            </div>
+                            <div class="over_slide">
+                                <div class="consider__subtitle">
+                                    Отчетность
+                                </div>
+                                <div class="consider__text">
+                                    Вы получаете отчетность не раз в неделю или месяц (как это принято у многих
+                                    специалистов), а почти
+                                    каждый день. Причем в удобном и понятном для вас виде. И это позволяет вам всегда быть в
+                                    курсе событий
+                                    и оперативно принимать управленческие решения.
+                                </div>
+                            </div>
+                        </div>
+                       <div class="consider__right">
+                           <img src="images/dest/content/consider-2.png" alt="img">
+                       </div>
+                    </div>
+                    <div class="consider__box" id="cashback_trigger">
+                        <div class="consider__left">
+                            <div class="over_slide">
+                                <div class="consider__subtitle">
+                                    Гарантия чистого целевого трафика
+                                </div>
+                                <div class="consider__text">
+                                    Я гарантирую вам на сайт только целевых посетителей. То есть тех людей, которые ищут
+                                    именно ваш товар
+                                    или услугу. Другими словами, я возвращаю вам стоимость нецелевых кликов, если такие
+                                    будут. Ваш
+                                    рекламный бюджет застрахован от “слива”
+                                </div>
+                            </div>
+                        </div>
+                        <div class="consider__right consider__cashback">
+                           <img src="images/dest/content/consider-2.png" alt="img">
+                           <div class="chat-widget" id="cashback_chat">
+                            <div class="chat-widget__header">
+                                <div class="chat-widget__name" id="cashback_name">Андрей Шумилов</div>
+                                <div class="chat-widget__status" id="cashback_status">Печатает</div>
+                            </div>
+                            <div class="chat-widget__messages" id="cashback_msg">
+                                <div class="chat-widget__message" id="cashback_msg_1">
+                                    <div class="chat-widget__write">
+                                        <div class="chat-widget__dot"></div>
+                                        <div class="chat-widget__dot"></div>
+                                        <div class="chat-widget__dot"></div>
+                                        <div class="chat-widget__hand">
+                                            <img src="images/dest/emoji/writing-hand.png">
                                         </div>
-                                        <div class="chat-widget__content">
-                                            <div class="chat-widget__text">Верну все потреченные
-                                                не целевым образом средства до 3%
-                                            </div>
+                                    </div>
+                                    <div class="chat-widget__content">
+                                        <div class="chat-widget__text">Верну все потреченные
+                                            не целевым образом средства до 3%
                                         </div>
-                                        <div class="chat-widget__avatar">
-                                            <img src="images/dest/content/avatar.jpg">
-                                        </div>
+                                    </div>
+                                    <div class="chat-widget__avatar">
+                                        <img src="images/dest/content/avatar.jpg">
                                     </div>
                                 </div>
                             </div>
                         </div>
+                        </div>
                     </div>
-                    <div class="consider__box">
+                    <div class="consider__box" id="con_methods">
                         <div class="consider__left">
-                            <div class="consider__subtitle">
-                                Оцифровка
+                            <div class="over_slide">
+                                <div class="consider__subtitle">
+                                    Уникальные, рабочие, <br>
+                                    проверенные методы
+                                </div>
+                                <div class="consider__text">
+                                    Работа в период абонентского обслуживания идет по алгоритму, который я оттачивал годами.
+                                    Там нет места
+                                    пустым телодвижениям. Во главу угла ставится правило Вильфреда Парето (принцип 20/80).
+                                    Именно это
+                                    позволяет мне дать вам максимальный результат при минимальных затратах с вашей стороны
+                                </div>
                             </div>
-                            <div class="consider__text">
-                                Вы будете иметь полную картину текущей ситуации по вашим рекламным каналам. И не просто
-                                банальное
-                                число кликов, расход денег и т.п. Вы будете знать значения именно тех показателей,
-                                которые дадут вам
-                                понимание динамики работы интернет-маркетинга в вашем бизнесе.
-                            </div>
-                            <div class="consider__subtitle">
-                                Отчетность
-                            </div>
-                            <div class="consider__text">
-                                Вы получаете отчетность не раз в неделю или месяц (как это принято у многих
-                                специалистов), а почти
-                                каждый день. Причем в удобном и понятном для вас виде. И это позволяет вам всегда быть в
-                                курсе событий
-                                и оперативно принимать управленческие решения.
+                            <div class="over_slide">
+                                <div class="consider__subtitle">
+                                    Ручное управление (!)
+                                </div>
+                                <div class="consider__text">
+                                    Я не использую автоматические стратегии для управления ставками. Подбор ставок ведется
+                                    только в ручном
+                                    режиме. В большинстве случаев именно такой подход дает наилучший результат по стоимости
+                                    клика и
+                                    стоимости лида.
+                                </div>
                             </div>
                         </div>
-<!--                        <div class="consider__right">-->
-<!--                            <img src="images/dest/content/consider-2.png" alt="img">-->
-<!--                        </div>-->
+                       <div class="consider__right">
+                           <img src="images/dest/content/consider-2.png" alt="img">
+                           
+                       </div>
                     </div>
-
-                    <div class="consider__box" id="cashback_trigger">
+                    <div class="consider__box" id="con_conv">
                         <div class="consider__left">
-                            <div class="consider__subtitle">
-                                Гарантия чистого целевого трафика
+                            <div class="over_slide">
+                                <div class="consider__subtitle">
+                                    Повышаю конверсию
+                                </div>
+                                <div class="consider__text">
+                                    В период абонентского обслуживания я работаю над увеличением конверсии вашего сайта. Мой
+                                    опыт и знания
+                                    позволяют делать это. Не каждый специалист по контекстной рекламе имеет такие навыки.
+                                </div>
                             </div>
-                            <div class="consider__text">
-                                Я гарантирую вам на сайт только целевых посетителей. То есть тех людей, которые ищут
-                                именно ваш товар
-                                или услугу. Другими словами, я возвращаю вам стоимость нецелевых кликов, если такие
-                                будут. Ваш
-                                рекламный бюджет застрахован от “слива”
+                            <div class="over_slide">
+                                <div class="consider__subtitle">
+                                    Аккаунт — ваша собственность
+                                </div>
+                                <div class="consider__text">
+                                    Я работаю на вашем аккаунте. Или делаю новый и передаю вам. В любом случае аккаунт будет
+                                    принадлежать
+                                    вам. Большинство агентств работают на своих аккаунтах, и их оплата привязана
+                                    к расходу рекламного бюджета клиента. И при вашей попытке разорвать с ними отношения вам
+                                    просто не
+                                    отдадут ваш аккаунт.
+                                </div>
                             </div>
                         </div>
-                        <div class="consider__right consider__cashback">
-<!--                            <img src="images/dest/content/consider-2.png" alt="img">-->
-                        </div>
+                       <div class="consider__right">
+                           <img src="images/dest/content/consider-2.png" alt="img">
+                       </div>
                     </div>
-
-                    <div class="consider__box">
+                    <div class="consider__box" id="con_fast">
                         <div class="consider__left">
-                            <div class="consider__subtitle">
-                                Уникальные, рабочие, <br>
-                                проверенные методы
+                            <div class="over_slide">
+                                <div class="consider__subtitle">
+                                    Оперативность
+                                </div>
+                                <div class="consider__text">
+                                    Да да, я именно тот удаленный специалист, который всегда
+                                    на связи в рабочее время (да и во внерабочее тоже). Ответ на ваш вопрос в чат поступает
+                                    уже примерно
+                                    через 20 минут. На звонки отвечаем почти всегда сразу или с задержкой до 1 часа. В
+                                    случае
+                                    возникновения внештатных ситуаций остановка кампаний производится круглосуточно.
+                                </div>
                             </div>
-                            <div class="consider__text">
-                                Работа в период абонентского обслуживания идет по алгоритму, который я оттачивал годами.
-                                Там нет места
-                                пустым телодвижениям. Во главу угла ставится правило Вильфреда Парето (принцип 20/80).
-                                Именно это
-                                позволяет мне дать вам максимальный результат при минимальных затратах с вашей стороны
-                            </div>
-                            <div class="consider__subtitle">
-                                Ручное управление (!)
-                            </div>
-                            <div class="consider__text">
-                                Я не использую автоматические стратегии для управления ставками. Подбор ставок ведется
-                                только в ручном
-                                режиме. В большинстве случаев именно такой подход дает наилучший результат по стоимости
-                                клика и
-                                стоимости лида.
+                            <div class="over_slide">
+                                <div class="consider__subtitle">
+                                    Фиксированная стоимость услуг
+                                </div>
+                                <div class="consider__text">
+                                    Я не привязываю оплату своих услуг к % от потраченного вами рекламного бюджета. Это
+                                    значит, что у меня
+                                    нет соблазна увеличивать расход ваших средств. Я работаю за фиксированную заранее
+                                    известную вам сумму
+                                </div>
                             </div>
                         </div>
-<!--                        <div class="consider__right">-->
-<!--                            <img src="images/dest/content/consider-2.png" alt="img">-->
-<!--                        </div>-->
+                       <div class="consider__right">
+                           <img src="images/dest/content/consider-2.png" alt="img">
+                       </div>
                     </div>
-
-                    <div class="consider__box">
+                    <div class="consider__box" id="con_team">
                         <div class="consider__left">
-                            <div class="consider__subtitle">
-                                Повышаю конверсию
+                            <div class="over_slide">
+                                <div class="consider__subtitle">
+                                    Командная работа
+                                </div>
+                                <div class="consider__text">
+                                    Кроме меня над вашим проектом будут работать ещё 2 специалиста. Специалист по трафику и
+                                    интернет-маркетолог. Сами настройки — это только часть успеха. Очень важна и упаковка
+                                    вашего
+                                    предложения на сайте. Поэтому и нужно 3 человека, чтобы обеспечить комплексный подход к
+                                    вашему бизнесу
+                                    и взаимоконтроль.
+                                </div>
                             </div>
-                            <div class="consider__text">
-                                В период абонентского обслуживания я работаю над увеличением конверсии вашего сайта. Мой
-                                опыт и знания
-                                позволяют делать это. Не каждый специалист по контекстной рекламе имеет такие навыки.
-                            </div>
-                            <div class="consider__subtitle">
-                                Аккаунт — ваша собственность
-                            </div>
-                            <div class="consider__text">
-                                Я работаю на вашем аккаунте. Или делаю новый и передаю вам. В любом случае аккаунт будет
-                                принадлежать
-                                вам. Большинство агентств работают на своих аккаунтах, и их оплата привязана
-                                к расходу рекламного бюджета клиента. И при вашей попытке разорвать с ними отношения вам
-                                просто не
-                                отдадут ваш аккаунт.
-                            </div>
-                        </div>
-<!--                        <div class="consider__right">-->
-<!--                            <img src="images/dest/content/consider-2.png" alt="img">-->
-<!--                        </div>-->
-                    </div>
-
-                    <div class="consider__box">
-                        <div class="consider__left">
-                            <div class="consider__subtitle">
-                                Оперативность
-                            </div>
-                            <div class="consider__text">
-                                Да да, я именно тот удаленный специалист, который всегда
-                                на связи в рабочее время (да и во внерабочее тоже). Ответ на ваш вопрос в чат поступает
-                                уже примерно
-                                через 20 минут. На звонки отвечаем почти всегда сразу или с задержкой до 1 часа. В
-                                случае
-                                возникновения внештатных ситуаций остановка кампаний производится круглосуточно.
-                            </div>
-                            <div class="consider__subtitle">
-                                Фиксированная стоимость услуг
-                            </div>
-                            <div class="consider__text">
-                                Я не привязываю оплату своих услуг к % от потраченного вами рекламного бюджета. Это
-                                значит, что у меня
-                                нет соблазна увеличивать расход ваших средств. Я работаю за фиксированную заранее
-                                известную вам сумму
+                            <div class="over_slide">
+                                <div class="consider__subtitle">
+                                    Общение
+                                </div>
+                                <div class="consider__text">
+                                    Вы будете общаться не через менеджера проектов –
+                                    человека, который зачастую создает эффект «сломанного телефона»
+                                    и замедляет передачу информации, а напрямую с интересующим вас специалистом. Со мной,
+                                    директологом или
+                                    интернет-маркетологом. Это значит, что общение будет максимально быстрым, а передача
+                                    информации - без
+                                    искажений.
+                                </div>
                             </div>
                         </div>
-<!--                        <div class="consider__right">-->
-<!--                            <img src="images/dest/content/consider-2.png" alt="img">-->
-<!--                        </div>-->
+                       <div class="consider__right">
+                           <img src="images/dest/content/consider-2.png" alt="img">
+                       </div>
                     </div>
-
-                    <div class="consider__box">
-                        <div class="consider__left">
-                            <div class="consider__subtitle">
-                                Командная работа
-                            </div>
-                            <div class="consider__text">
-                                Кроме меня над вашим проектом будут работать ещё 2 специалиста. Специалист по трафику и
-                                интернет-маркетолог. Сами настройки — это только часть успеха. Очень важна и упаковка
-                                вашего
-                                предложения на сайте. Поэтому и нужно 3 человека, чтобы обеспечить комплексный подход к
-                                вашему бизнесу
-                                и взаимоконтроль.
-                            </div>
-                            <div class="consider__subtitle">
-                                Общение
-                            </div>
-                            <div class="consider__text">
-                                Вы будете общаться не через менеджера проектов –
-                                человека, который зачастую создает эффект «сломанного телефона»
-                                и замедляет передачу информации, а напрямую с интересующим вас специалистом. Со мной,
-                                директологом или
-                                интернет-маркетологом. Это значит, что общение будет максимально быстрым, а передача
-                                информации - без
-                                искажений.
-                            </div>
-                        </div>
-<!--                        <div class="consider__right">-->
-<!--                            <img src="images/dest/content/consider-2.png" alt="img">-->
-<!--                        </div>-->
-                    </div>
-
                     <div class="consider__box" id="consider_end">
                         <div class="consider__left">
-                            <div class="consider__subtitle">
-                                Взаимодействие
+                            <div class="over_slide">
+                                <div class="consider__subtitle">
+                                    Взаимодействие
+                                </div>
+                                <div class="consider__text">
+                                    Наша с вами общение будет выстраиваться таким образом,
+                                    что вы забудете, что мы с вами в разных городах. Это достигается
+                                    за счёт пунктуальности, оперативности, самодисциплины, использования
+                                    видеоконференцсвязи, ежедневного
+                                    общения
+                                    в рабочем чате и других инструментов. Я работаю удалённо
+                                    с 2015 года и точно знаю, что нужно для комфортной
+                                    и эффективной работы на расстоянии.
+                                </div>
                             </div>
-                            <div class="consider__text">
-                                Наша с вами общение будет выстраиваться таким образом,
-                                что вы забудете, что мы с вами в разных городах. Это достигается
-                                за счёт пунктуальности, оперативности, самодисциплины, использования
-                                видеоконференцсвязи, ежедневного
-                                общения
-                                в рабочем чате и других инструментов. Я работаю удалённо
-                                с 2015 года и точно знаю, что нужно для комфортной
-                                и эффективной работы на расстоянии.
-                            </div>
-                            <div class="consider__subtitle">
-                                Каналы связи и хранение данных
-                            </div>
-                            <div class="consider__text">
-                                Для удобства общения всех участников (с вашей и моей стороны), будет создан общий
-                                рабочий чат в одном
-                                из мессенджеров на ваш выбор (WhatsApp, Viber или Telegram). Так общение будет более
-                                оперативным и
-                                прозрачным. И вся информация от разных специалистов будет в одном месте.
+                            <div class="over_slide">
+                                <div class="consider__subtitle">
+                                    Каналы связи и хранение данных
+                                </div>
+                                <div class="consider__text">
+                                    Для удобства общения всех участников (с вашей и моей стороны), будет создан общий
+                                    рабочий чат в одном
+                                    из мессенджеров на ваш выбор (WhatsApp, Viber или Telegram). Так общение будет более
+                                    оперативным и
+                                    прозрачным. И вся информация от разных специалистов будет в одном месте.
+                                </div>
                             </div>
                         </div>
-<!--                        <div class="consider__right">-->
-<!--                            <img src="images/dest/content/consider-2.png" alt="img">-->
-<!--                        </div>-->
+                       <div class="consider__right">
+                           <img src="images/dest/content/consider-2.png" alt="img">
+                       </div>
                     </div>
 
                 </div>

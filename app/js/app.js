@@ -17,21 +17,83 @@ $(function(){
     const img = document.querySelector('.present__img');
     const menu = document.querySelector('.header');
 
-    // фиксируем изображение
-    gsap.set('.present__img', {top: window.innerHeight / 2 - img.getBoundingClientRect().height / 2 + menu.getBoundingClientRect().height / 2});
+    if (!mobile) {
+      // фиксируем изображение
+      gsap.set('.present__img', {top: window.innerHeight / 2 - img.getBoundingClientRect().height / 2 + menu.getBoundingClientRect().height / 2});
+  
+      // анимация сообщений в первом блоке
+      gsap.timeline({ repeat: -1 })
+          // .from('#present_msg', .5, {autoAlpha: 0})
+          .to('#present_msg_1 .chat-widget__write', .5, {autoAlpha: 0}, 12.5)
+          .from('#present_msg_1 .chat-widget__content', .5, {height: 50}, 12.5)
+          .from('#present_msg_1 .chat-widget__content', .5, {autoAlpha: 0})
+          .to('#present_msg_1', .5, {marginBottom: 30})
+          .from('#present_msg_2', .5, {height: 0}, '-=.5')
+          .from('#present_msg_2', .5, {autoAlpha: 0})
+          .to('#present_msg_2', 12, {autoAlpha: 1})
+          // .to('#present_msg', .5, {autoAlpha: 0})
+          // .to('#present_msg', .5, {height: 89})
+    } else {
+      ScrollTrigger.create({
+        trigger: '.present__mobile-img',
+        start: 'center center',
+        endTrigger: '#present_chat',
+        end: 'center center',
+        pin: '.present__mobile-img',
+        pinSpacing: false
+      })
+      gsap.to('.present__mobile-img', {
+        scrollTrigger: {
+          trigger: '.present__mobile-img',
+          start: 'center center',
+          endTrigger: '#present_chat',
+          end: 'center center',
+          scrub: true
+        },
+        autoAlpha: 0
+      })
+      gsap.to('#present_hello, #present_name', {
+        scrollTrigger: {
+          trigger: '.present__mobile-img',
+          start: 'center center',
+          endTrigger: '#present_name',
+          end: 'center center',
+          scrub: true
+        },
+        autoAlpha: 0
+      })
 
-    // анимация сообщений в первом блоке
-    gsap.timeline({ repeat: -1 })
-        // .from('#present_msg', .5, {autoAlpha: 0})
-        .to('#present_msg_1 .chat-widget__write', .5, {autoAlpha: 0}, 12.5)
-        .from('#present_msg_1 .chat-widget__content', .5, {height: 50}, 12.5)
-        .from('#present_msg_1 .chat-widget__content', .5, {autoAlpha: 0})
-        .to('#present_msg_1', .5, {marginBottom: 30})
-        .from('#present_msg_2', .5, {height: 0}, '-=.5')
-        .from('#present_msg_2', .5, {autoAlpha: 0})
-        .to('#present_msg_2', 12, {autoAlpha: 1})
-        // .to('#present_msg', .5, {autoAlpha: 0})
-        // .to('#present_msg', .5, {height: 89})
+      gsap.from('#present_chat', {
+        autoAlpha: 0,
+        repeat: 1,
+        yoyo: true,
+        scrollTrigger: {
+          trigger: '#present_chat',
+          start: 'top center',
+          end: 'bottom center',
+          scrub: true
+        }
+      })
+
+      ScrollTrigger.create({
+        trigger: '#present_chat',
+        start: 'center center',
+        pin: '#present_chat',
+        pinSpacing: false,
+        endTrigger: '#present_history',
+        end: 'center center'
+      })
+
+      gsap.from('#present_history', {
+        autoAlpha: 0,
+        scrollTrigger: {
+          trigger: '#present_history',
+          start: 'top center',
+          end: 'center center',
+          scrub: true
+        }
+      })
+    }
   }
 
   if (!!document.querySelector('#exp_msg')) {
@@ -335,34 +397,91 @@ $(function(){
   }
 
   if (!!document.querySelector('.consider')) {
-    gsap.to('#men_1', {
-      scrollTrigger: {
-        trigger: '#men_1',
-        start: 'center center',
-        end: 'center+=100% center',
-        pin: '#men_1',
-        scrub: true,
-        pinType: 'fixed'
-      },
-      autoAlpha: 0
-    })
+    if (!mobile) {
+      gsap.to('#men_1 img', {
+        scrollTrigger: {
+          trigger: '#con_why',
+          start: 'center center',
+          end: 'bottom center',
+          pin: '#men_1',
+          scrub: true,
+          pinType: 'transform',
+          pinSpacing: false
+        },
+        autoAlpha: 0
+      })
+  
+      const sections_id = ['con_exp', 'con_digital', 'cashback_trigger', 'con_methods', 'con_conv', 'con_fast', 'con_team', 'consider_end'];
+  
+      sections_id.forEach(s => {
+        // section
+        gsap.from(`#${s} .consider__right`, {
+          scrollTrigger: {
+            trigger: `#${s}`,
+            start: 'top center',
+            end: 'bottom center',
+            scrub: true
+          },
+          autoAlpha: 0,
+          repeat: 1,
+          yoyo: 1
+        })
+  
+        if (s !== 'consider_end') {
+          ScrollTrigger.create({
+            trigger: `#${s}`,
+            start: 'center center',
+            pin: `#${s} .consider__right`,
+            end: 'bottom center',
+            scrub: true,
+            pinType: 'transform',
+            pinSpacing: false
+          })
+        }
+      })
+    } else {
+      gsap.to('#con_why', {
+        autoAlpha: 0,
+        scrollTrigger: {
+          trigger: '#con_why',
+          start: 'center center',
+          end: 'bottom center',
+          pin: '#con_why',
+          pinSpacing: false,
+          pinType: 'transform',
+          scrub: true
+        }
+      })
 
-    gsap.timeline({
-      scrollTrigger: {
-        trigger: '.consider__exp',
-        start: 'center center',
-        endTrigger: '#consider_end',
-        end: 'bottom bottom',
-        pin: '.consider__exp',
-        scrub: true,
-        pinType: 'fixed'
-      }
-    })
-        .from('.consider__exp', .1, {autoAlpha: 0})
-        .from('#exp_chat', .5, {autoAlpha: 0})
-        .to('#exp_chat', .5, {autoAlpha: 0})
-        .from('#cashback_chat', .5, {autoAlpha: 0})
-        .to('#cashback_chat', .5, {autoAlpha: 0})
+      const slides = document.querySelectorAll('.over_slide');
+
+      slides.forEach((s, i) => {
+        gsap.from(s, {
+          autoAlpha: 0,
+          repeat: i === slides.length - 1 ? 0 : 1,
+          yoyo: i === slides.length - 1 ? false : true,
+          scrollTrigger: {
+            trigger: s,
+            start: 'top center',
+            end: i === slides.length - 1 ? 'center center' : 'bottom center',
+            scrub: true,
+          }
+        })
+
+        if ( i !== slides.length - 1) {
+          ScrollTrigger.create({
+            trigger: s,
+            pin: s,
+            start: 'center center',
+            end: 'bottom+=100px center',
+            scrub: true,
+            pinSpacing: false,
+          })
+        }
+
+      })
+
+    }
   }
 
   //анимация на секцию present
