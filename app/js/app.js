@@ -18,24 +18,32 @@ $(function () {
 
 		if (!mobile) {
 			// фиксируем изображение
-			gsap.set('.present__img', {
-				top:
-					window.innerHeight / 2 -
-					img.getBoundingClientRect().height / 2 +
-					menu.getBoundingClientRect().height / 2,
+			// gsap.set('.present__img', {
+			// 	top:
+			// 		window.innerHeight / 2 -
+			// 		img.getBoundingClientRect().height / 2 +
+			// 		menu.getBoundingClientRect().height / 2,
+			// });
+			ScrollTrigger.create({
+				trigger: '#present_hello',
+				start: 'center center',
+				endTrigger: '#present_history',
+				end: 'center center',
+				pin: '.present__img',
+				pinSpacing: false,
 			});
 
 			// анимация сообщений в первом блоке
 			gsap
 				.timeline({ repeat: -1 })
 				// .from('#present_msg', .5, {autoAlpha: 0})
-				.to('#present_msg_1 .chat-widget__write', 0.5, { autoAlpha: 0 }, 12.5)
-				.from('#present_msg_1 .chat-widget__content', 0.5, { height: 50 }, 12.5)
+				.to('#present_msg_1 .chat-widget__write', 0.5, { autoAlpha: 0 }, 2)
+				.from('#present_msg_1 .chat-widget__content', 0.5, { height: 50 }, 2)
 				.from('#present_msg_1 .chat-widget__content', 0.5, { autoAlpha: 0 })
 				.to('#present_msg_1', 0.5, { marginBottom: 30 })
 				.from('#present_msg_2', 0.5, { height: 0 }, '-=.5')
 				.from('#present_msg_2', 0.5, { autoAlpha: 0 })
-				.to('#present_msg_2', 12, { autoAlpha: 1 });
+				.to('#present_msg_2', 2, { autoAlpha: 1 });
 			// .to('#present_msg', .5, {autoAlpha: 0})
 			// .to('#present_msg', .5, {height: 89})
 		} else {
@@ -110,7 +118,7 @@ $(function () {
 				},
 			})
 
-			.from('#exp_msg_1 .chat-widget__content', 0.5, { height: 50 }, 12)
+			.from('#exp_msg_1 .chat-widget__content', 0.5, { height: 50 }, 2)
 			.from('#exp_msg_1 .chat-widget__content', 0.5, { autoAlpha: 0 })
 			.to('#exp_msg_1 .chat-widget__write', 0.5, { autoAlpha: 0 }, '-=.5')
 			.to('#exp_status', 0.5, { autoAlpha: 0 })
@@ -125,7 +133,7 @@ $(function () {
 					start: 'bottom bottom',
 				},
 			})
-			.from('#cashback_msg_1 .chat-widget__content', 0.5, { height: 50 }, 12)
+			.from('#cashback_msg_1 .chat-widget__content', 0.5, { height: 50 }, 2)
 			.from('#cashback_msg_1 .chat-widget__content', 0.5, { autoAlpha: 0 })
 			.to('#cashback_msg_1 .chat-widget__write', 0.5, { autoAlpha: 0 }, '-=.5')
 			.to('#cashback_status', 0.5, { autoAlpha: 0 })
@@ -297,7 +305,8 @@ $(function () {
 					scrollTrigger: {
 						trigger: '#app_content_2',
 						start: `top-=${window.innerHeight / 2}px center`,
-						end: 'top+=100px center',
+						endTrigger: '#app_content_3',
+						end: 'center center',
 						scrub: true,
 					},
 				})
@@ -311,37 +320,37 @@ $(function () {
 					stagger: 0.1,
 				});
 
-			gsap
-				.timeline({
-					scrollTrigger: {
-						trigger: '#app_content_3',
-						start: `top-=${window.innerHeight / 2}px center`,
-						end: 'top+=100px center',
-						scrub: true,
-					},
-				})
-				.to('#app_2', { autoAlpha: 0 })
-				.from('#app_3', { autoAlpha: 0 }, '+=2')
-				.from('#app_3 .escort__right-list li', 0.5, {
-					autoAlpha: 0,
-					stagger: 0.1,
-				});
+			// gsap
+			// 	.timeline({
+			// 		scrollTrigger: {
+			// 			trigger: '#app_content_3',
+			// 			start: `top-=${window.innerHeight / 2}px center`,
+			// 			end: 'top+=100px center',
+			// 			scrub: true,
+			// 		},
+			// 	})
+			// 	.to('#app_2', { autoAlpha: 0 })
+			// 	.from('#app_3', { autoAlpha: 0 }, '+=2')
+			// 	.from('#app_3 .escort__right-list li', 0.5, {
+			// 		autoAlpha: 0,
+			// 		stagger: 0.1,
+			// 	});
 
-			gsap
-				.timeline({
-					scrollTrigger: {
-						trigger: '#app_content_4',
-						start: `top-=${window.innerHeight / 2}px center`,
-						end: 'top+=100px center',
-						scrub: true,
-					},
-				})
-				.to('#app_3', { autoAlpha: 0 })
-				.from('#app_4', { autoAlpha: 0 }, '+=2')
-				.from('#app_4 .escort__right-list li', 0.5, {
-					autoAlpha: 0,
-					stagger: 0.1,
-				});
+			// gsap
+			// 	.timeline({
+			// 		scrollTrigger: {
+			// 			trigger: '#app_content_4',
+			// 			start: `top-=${window.innerHeight / 2}px center`,
+			// 			end: 'top+=100px center',
+			// 			scrub: true,
+			// 		},
+			// 	})
+			// 	.to('#app_2', { autoAlpha: 0 })
+			// 	.from('#app_4', { autoAlpha: 0 }, '+=2')
+			// 	.from('#app_4 .escort__right-list li', 0.5, {
+			// 		autoAlpha: 0,
+			// 		stagger: 0.1,
+			// 	});
 
 			gsap
 				.timeline({
@@ -352,7 +361,7 @@ $(function () {
 						scrub: true,
 					},
 				})
-				.to('#app_4', { autoAlpha: 0 })
+				.to('#app_2', { autoAlpha: 0 })
 				.from('#app_5', { autoAlpha: 0 }, '+=2');
 
 			gsap
@@ -438,60 +447,83 @@ $(function () {
 			gsap.to('#men_1 img', {
 				scrollTrigger: {
 					trigger: '#con_why',
+					endTrigger: '#consider_end',
 					start: 'center center',
-					end: 'bottom center',
+					end: 'center center',
 					pin: '#men_1',
 					scrub: true,
-					pinType: 'transform',
+					// pinType: 'transform',
 					pinSpacing: false,
 				},
+				// autoAlpha: 0,
+			});
+
+			gsap.from('#exp_chat', {
 				autoAlpha: 0,
+				repeat: 1,
+				yoyo: 1,
+				scrollTrigger: {
+					trigger: '#con_exp',
+					start: 'top center',
+					end: 'bottom top',
+					scrub: true,
+				},
 			});
 
-			const sections_id = [
-				'con_exp',
-				'con_digital',
-				'cashback_trigger',
-				'con_methods',
-				'con_conv',
-				'con_fast',
-				'con_team',
-				'consider_end',
-			];
-
-			sections_id.forEach((s) => {
-				// section
-				gsap.from(`#${s} .consider__right`, {
-					scrollTrigger: {
-						trigger: `#${s}`,
-						start: 'top center',
-						end: 'bottom center',
-						scrub: true,
-						pinType: 'fixed',
-						pinSpacing: false,
-						anticipatePin: 1,
-					},
-					autoAlpha: 0,
-					repeat: 1,
-					yoyo: 1,
-				});
-
-				if (s !== 'consider_end') {
-					gsap.to(s, {
-						scrollTrigger: {
-							trigger: `#${s}`,
-							start: 'center center',
-							pin: `#${s} .consider__right`,
-							endTrigger: `#${s}`,
-							end: 'bottom center',
-							pinType: 'fixed',
-							pinSpacing: false,
-							anticipatePin: 1,
-						},
-						autoAlpha: 1,
-					});
-				}
+			gsap.from('#cashback_chat', {
+				autoAlpha: 0,
+				repeat: 1,
+				yoyo: 1,
+				scrollTrigger: {
+					trigger: '#cashback_trigger',
+					start: 'top center',
+					end: 'bottom top',
+					scrub: true,
+				},
 			});
+
+			// const sections_id = [
+			// 	'con_exp',
+			// 	'con_digital',
+			// 	'cashback_trigger',
+			// 	'con_methods',
+			// 	'con_conv',
+			// 	'con_fast',
+			// 	'con_team',
+			// 	'consider_end',
+			// ];
+			// sections_id.forEach((s) => {
+			// 	// section
+			// 	gsap.from(`#${s} .consider__right`, {
+			// 		scrollTrigger: {
+			// 			trigger: `#${s}`,
+			// 			start: 'top center',
+			// 			end: 'bottom center',
+			// 			scrub: true,
+			// 			pinType: 'fixed',
+			// 			pinSpacing: false,
+			// 			anticipatePin: 1,
+			// 		},
+			// 		autoAlpha: 0,
+			// 		repeat: 1,
+			// 		yoyo: 1,
+			// 	});
+			// 	if (s !== 'consider_end') {
+			// 		gsap.to(s, {
+			// 			scrollTrigger: {
+			// 				trigger: `#${s}`,
+			// 				start: 'center center',
+			// 				pin: `#${s} .consider__right`,
+			// 				endTrigger: `#${s}`,
+			// 				end: 'bottom center',
+			// 				pinType: 'fixed',
+			// 				pinSpacing: false,
+			// 				anticipatePin: 1,
+			// 			},
+			// 			autoAlpha: 1,
+			// 		});
+			// 	}
+			// });
 		} else {
 			gsap.to('#con_why', {
 				autoAlpha: 0,

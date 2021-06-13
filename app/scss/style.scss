@@ -944,15 +944,21 @@ body.mouse .menu-item-has-children {
   }
 
   &__left {
-    display: block;
+    display: flex;
     position: relative;
     margin-left: -50px;
-    width: calc(100% - 445px);
+    align-items: center;
+    // width: calc(100% - 445px);
+    height: 100vh;
   }
 
   &__box {
-    height: 60vh;
-    margin-top: 20vh;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    // height: 60vh;
+    // margin-top: 20vh;
   }
 
   &__mobile-img {
@@ -968,7 +974,7 @@ body.mouse .menu-item-has-children {
     margin-left: -50px;
     width: 100%;
     height: 680px;
-    position: sticky;
+    // position: sticky;
 
     img {
       display: block;
@@ -5747,8 +5753,6 @@ body.mouse .menu-item-has-children {
     }
   }
 
-
-
 }
 
 /*end escort=-=========*/
@@ -5757,8 +5761,18 @@ body.mouse .menu-item-has-children {
 
 
 
+// Chat upd
+#exp_chat {
+  position: absolute;
+  bottom: 38px;
+  left: -168px;
+}
 
-
+#cashback_chat {
+  position: absolute;
+  bottom: 86px;
+  left: -187px;
+}
 
 
 
