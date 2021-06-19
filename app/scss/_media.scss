@@ -2,7 +2,7 @@
   .header__menu-item {
     padding: 1px 5px 2px 5px;
   }
-  
+
   .chat-widget--mobile {
     display: block;
   }
@@ -21,6 +21,9 @@
     // right: 5px;
     // bottom: -115px;
     margin-top: -50px;
+    position: relative;
+    left: initial;
+    bottom: initial;
   }
 
   #cashback_chat {
@@ -75,6 +78,10 @@
 
     &__mobile-img {
       display: block;
+    }
+
+    &__left {
+      display: none;
     }
   }
 

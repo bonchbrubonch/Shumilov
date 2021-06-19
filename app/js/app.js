@@ -17,13 +17,6 @@ $(function () {
 		const menu = document.querySelector('.header');
 
 		if (!mobile) {
-			// фиксируем изображение
-			// gsap.set('.present__img', {
-			// 	top:
-			// 		window.innerHeight / 2 -
-			// 		img.getBoundingClientRect().height / 2 +
-			// 		menu.getBoundingClientRect().height / 2,
-			// });
 			ScrollTrigger.create({
 				trigger: '#present_hello',
 				start: 'center center',
